@@ -18,7 +18,7 @@ CheckingAccount::CheckingAccount( double initialBalance, double fee ) : Account(
 void CheckingAccount::credit( double amount )
 {
 	// your code
-	setBalance(getBalance() + amount);
+	Account::credit(amount);
 	chargeFee();
 } 
 
@@ -26,12 +26,12 @@ void CheckingAccount::credit( double amount )
 bool CheckingAccount::debit( double amount )
 {
 	// your code
-	if (amount > getBalance()){
-		return false;
-	} else{
-		setBalance(getBalance() - amount);
+	if(Account::debit(amount)){
 		chargeFee();
 		return true;
+	}
+	else{
+		return false;
 	}
 }
 
