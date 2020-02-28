@@ -10,13 +10,14 @@ SavingsAccount::SavingsAccount( double initialBalance, double rate ) : Account( 
 		rate = 0;
 	}
 	interestRate = rate;
-	calculateInterest();
 	setBalance(initialBalance);
 }
 
 double SavingsAccount::calculateInterest() {
 	// your code
-	interestRate *= 100;
+	double b;
+	b = getBalance() * interestRate;
+	return b;
 } 
 void SavingsAccount::display(ostream & os) const
 {
@@ -24,5 +25,5 @@ void SavingsAccount::display(ostream & os) const
 	os.precision(2);
 	os << "Account type: Saving" << endl;
 	os << "Balance: $ " << fixed << getBalance() << endl;
-	os << "Interest Rate (%): " << fixed << interestRate << endl;
+	os << "Interest Rate (%): " << fixed << interestRate * 100 << endl;
 }
