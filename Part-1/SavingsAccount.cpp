@@ -9,12 +9,14 @@ SavingsAccount::SavingsAccount( double initialBalance, double rate ) : Account( 
 	if(rate < 0){
 		rate = 0;
 	}
-	interestRate = rate * 100;
+	interestRate = rate;
+	calculateInterest();
 	setBalance(initialBalance);
 }
 
 double SavingsAccount::calculateInterest() {
 	// your code
+	interestRate *= 100;
 } 
 void SavingsAccount::display(ostream & os) const
 {
